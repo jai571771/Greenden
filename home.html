@@ -1,0 +1,572 @@
+﻿<!doctype html>
+
+<html class="light" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Greenden Boutique | Cultivating Tranquility at Home</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&amp;family=Lato:wght@400;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        background-color: #f9f9ff;
+        color: #121c2a;
+        -webkit-font-smoothing: antialiased;
+      }
+      .leaf-bullet::before {
+        content: "";
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        background-color: #006b2c;
+        mask-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8.13,20C11,20 14.29,19.04 15.68,14.61C16.89,14.86 18.06,14.73 19.16,14.07L16,11C18.66,11.5 21,10 22,8C15,7 15,3 12,2C12,5 10,11 17,8Z"/></svg>');
+        mask-repeat: no-repeat;
+        mask-size: contain;
+        margin-right: 8px;
+      }
+      .hero-gradient {
+        background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%);
+      }
+      .glass-nav {
+        background: rgba(249, 249, 255, 0.8);
+        backdrop-filter: blur(12px);
+      }
+    </style>
+  </head>
+  <body class="font-sans text-slate-900">
+    <!-- TopAppBar Navigation -->
+    <header
+      class="w-full sticky top-0 z-50 glass-nav shadow-[0_4px_20px_rgba(20,83,45,0.05)]"
+    >
+      <nav
+        class="max-w-[1280px] mx-auto px-4 md:px-6 flex justify-between items-center h-20"
+      >
+        <div class="flex items-center gap-2">
+          <span class="material-symbols-outlined text-green-800 text-3xl"
+            >potted_plant</span
+          >
+          <h1 class="font-serif text-2xl text-green-800 tracking-tight">
+            Greenden
+          </h1>
+        </div>
+        <div class="hidden md:flex items-center gap-8">
+          <a
+            class="text-green-800 font-bold border-b-2 border-green-800 py-1"
+            href="home.html"
+            >Home</a
+          >
+          <a
+            class="text-green-900/70 hover:text-green-800 transition-colors duration-300"
+            href="product.html"
+            >Products</a
+          >
+          <a
+            class="text-green-900/70 hover:text-green-800 transition-colors duration-300"
+            href="contact.html"
+            >Contact</a
+          >
+        </div>
+        <div class="flex items-center gap-4">
+          <button
+            class="material-symbols-outlined text-green-900/70 scale-95 active:scale-90 transition-transform"
+          >
+            search
+          </button>
+          <button
+            class="material-symbols-outlined text-green-900/70 scale-95 active:scale-90 transition-transform"
+          >
+            shopping_cart
+          </button>
+          <button
+            class="md:hidden material-symbols-outlined text-green-900/70"
+            onclick="toggleDrawer()"
+          >
+            menu
+          </button>
+        </div>
+      </nav>
+    </header>
+    <!-- Navigation Drawer (Mobile) -->
+    <div class="fixed inset-0 z-[60] hidden" id="drawer">
+      <div class="absolute inset-0 bg-black/20" onclick="toggleDrawer()"></div>
+      <aside
+        class="absolute left-0 top-0 bg-slate-100 h-full w-72 shadow-xl flex flex-col py-6 transform transition-transform"
+      >
+        <div class="px-6 py-4 flex justify-between items-center">
+          <h2 class="font-serif text-green-800 text-2xl">Greenden Menu</h2>
+          <button class="material-symbols-outlined" onclick="toggleDrawer()">
+            close
+          </button>
+        </div>
+        <nav class="mt-4 flex flex-col gap-2">
+          <a
+            class="bg-green-200 text-green-800 rounded-full mx-2 flex items-center gap-4 px-6 py-3"
+            href="#"
+          >
+            <span class="material-symbols-outlined">home</span>
+            <span class="font-sans">Home</span>
+          </a>
+          <a
+            class="text-green-900/70 hover:bg-white-variant/50 rounded-full mx-2 flex items-center gap-4 px-6 py-3 transition-all duration-300"
+            href="#"
+          >
+            <span class="material-symbols-outlined">local_florist</span>
+            <span class="font-sans">Products</span>
+          </a>
+          <a
+            class="text-green-900/70 hover:bg-white-variant/50 rounded-full mx-2 flex items-center gap-4 px-6 py-3 transition-all duration-300"
+            href="#"
+          >
+            <span class="material-symbols-outlined">mail</span>
+            <span class="font-sans">Contact</span>
+          </a>
+        </nav>
+      </aside>
+    </div>
+    <!-- Hero Section -->
+    <section class="hero-gradient relative overflow-hidden">
+      <div
+        class="max-w-[1280px] mx-auto px-4 md:px-6 pt-12 pb-24 md:py-24 flex flex-col md:flex-row items-center gap-12"
+      >
+        <!-- Content Left -->
+        <div
+          class="w-full md:w-1/2 text-center md:text-left z-10"
+          data-aos="fade-up"
+        >
+          <h2
+            class="font-serif text-4xl md:text-5xl text-slate-900 mb-6 leading-tight"
+          >
+            Bring Nature <br class="hidden md:block" />
+            Indoors
+          </h2>
+          <p
+            class="font-sans text-lg text-green-900/70 mb-10 max-w-lg mx-auto md:mx-0"
+          >
+            Discover a curated collection of premium indoor plants. From
+            low-maintenance greenery to exotic botanical masterpieces, we help
+            you cultivate tranquility.
+          </p>
+          <div
+            class="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start"
+          >
+            <button
+              class="px-8 py-4 bg-green-800 text-white font-sans rounded-full shadow-lg hover:shadow-green-800/20 hover:scale-105 transition-all duration-300 flex items-center gap-2"
+            >
+              Explore Collection
+              <span class="material-symbols-outlined text-sm"
+                >arrow_forward</span
+              >
+            </button>
+            <button
+              class="px-8 py-4 border-2 border-green-800 text-green-800 font-sans rounded-full hover:bg-green-800/5 transition-all duration-300"
+            >
+              Care Guide
+            </button>
+          </div>
+        </div>
+        <!-- Illustration Right -->
+        <div
+          class="w-full md:w-1/2 flex justify-center md:justify-end relative"
+        >
+          <div
+            class="absolute inset-0 bg-green-800/5 rounded-full blur-3xl -z-10 transform scale-75"
+          ></div>
+          <img
+            alt="Premium Monstera Plant"
+            class="w-full max-w-lg object-contain drop-shadow-2xl hover:scale-[1.02] transition-transform duration-700"
+            src="images/hero_plant.png"
+          />
+        </div>
+      </div>
+      <!-- Subtle Pattern Overlay -->
+      <div
+        class="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-background to-transparent pointer-events-none"
+      ></div>
+    </section>
+    <!-- Feature Strip -->
+    <section class="max-w-[1280px] mx-auto px-4 md:px-6 -mt-12 relative z-20">
+      <div
+        class="bg-white rounded-2xl shadow-[0_10px_40px_rgba(20,83,45,0.08)] grid grid-cols-1 md:grid-cols-3 gap-8 p-8 border border-green-200/30"
+      >
+        <div
+          class="flex items-center gap-4 md:justify-center border-b md:border-b-0 md:border-r border-green-200/20 pb-6 md:pb-0"
+        >
+          <div
+            class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-800"
+          >
+            <span class="material-symbols-outlined">eco</span>
+          </div>
+          <div>
+            <h4 class="font-sans text-slate-900">Natural</h4>
+            <p class="text-base text-green-900/70 opacity-70">
+              100% Organic Origins
+            </p>
+          </div>
+        </div>
+        <div
+          class="flex items-center gap-4 md:justify-center border-b md:border-b-0 md:border-r border-green-200/20 pb-6 md:pb-0"
+        >
+          <div
+            class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-800"
+          >
+            <span class="material-symbols-outlined">local_shipping</span>
+          </div>
+          <div>
+            <h4 class="font-sans text-slate-900">Free Delivery</h4>
+            <p class="text-base text-green-900/70 opacity-70">
+              On orders over $50
+            </p>
+          </div>
+        </div>
+        <div class="flex items-center gap-4 md:justify-center">
+          <div
+            class="w-12 h-12 rounded-full bg-green-100 flex items-center justify-center text-green-800"
+          >
+            <span class="material-symbols-outlined">replay</span>
+          </div>
+          <div>
+            <h4 class="font-sans text-slate-900">Easy Returns</h4>
+            <p class="text-base text-green-900/70 opacity-70">
+              30-day return policy
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Best Sellers Section -->
+    <section class="max-w-[1280px] mx-auto px-4 md:px-6 mt-16 mb-16">
+      <div class="flex justify-between items-end mb-12">
+        <div>
+          <span class="text-green-800 font-sans tracking-widest block mb-2"
+            >CURATED SELECTION</span
+          >
+          <h3 class="font-serif text-3xl md:text-4xl text-slate-900">
+            Best Sellers
+          </h3>
+        </div>
+        <a
+          class="text-green-800 font-sans border-b border-green-800 hover:border-b-2 transition-all pb-1"
+          href="#"
+          >View All Plants</a
+        >
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- Product Card 1: Snake Plant -->
+        <div
+          class="group bg-white border border-green-800/10 rounded-xl overflow-hidden hover:shadow-[0_20px_50px_rgba(20,83,45,0.12)] transition-all duration-500"
+        >
+          <div class="relative overflow-hidden aspect-[4/5] bg-[#f8fafc]">
+            <img
+              alt="Snake Plant in Terra Cotta Pot"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              src="images/snake_plant.png"
+            />
+            <div
+              class="absolute top-4 right-4 bg-green-300 text-green-900 px-3 py-1 rounded-full font-sans text-xs"
+            >
+              Best Seller
+            </div>
+          </div>
+          <div class="p-6">
+            <h4 class="font-serif text-slate-900 mb-1">Snake Plant</h4>
+            <p class="text-green-900/70 text-base mb-4">$35.00</p>
+            <button
+              class="w-full py-3 bg-green-200 text-green-800 font-sans rounded-lg group-hover:bg-green-800 group-hover:text-white transition-colors duration-300 flex items-center justify-center gap-2"
+            >
+              <span class="material-symbols-outlined text-lg"
+                >add_shopping_cart</span
+              >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <!-- Product Card 2: Peace Lily -->
+        <div
+          class="group bg-white border border-green-800/10 rounded-xl overflow-hidden hover:shadow-[0_20px_50px_rgba(20,83,45,0.12)] transition-all duration-500"
+        >
+          <div class="relative overflow-hidden aspect-[4/5] bg-[#f8fafc]">
+            <img
+              alt="Peace Lily in Minimalist White Pot"
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              src="images/peace_lily.png"
+            />
+            <div
+              class="absolute top-4 left-4 bg-green-100 text-green-950 px-3 py-1 rounded-full font-sans text-xs"
+            >
+              Easy Care
+            </div>
+          </div>
+          <div class="p-6">
+            <h4 class="font-serif text-slate-900 mb-1">Peace Lily</h4>
+            <p class="text-green-900/70 text-base mb-4">$42.00</p>
+            <button
+              class="w-full py-3 bg-green-200 text-green-800 font-sans rounded-lg group-hover:bg-green-800 group-hover:text-white transition-colors duration-300 flex items-center justify-center gap-2"
+            >
+              <span class="material-symbols-outlined text-lg"
+                >add_shopping_cart</span
+              >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <!-- Card 3: Philodendron -->
+        <div
+          class="group bg-white border border-green-800/10 rounded-xl overflow-hidden hover:shadow-[0_20px_50px_rgba(20,83,45,0.12)] transition-all duration-500"
+        >
+          <div class="relative overflow-hidden aspect-[4/5] bg-stone-500/5">
+            <img
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              data-alt="A close-up high-resolution photograph of a Heartleaf Philodendron with vibrant green, heart-shaped leaves hanging elegantly. The plant is positioned in a modern grey ceramic pot on a clean white surface. Soft, natural light spills from a nearby window, creating gentle shadows and a peaceful, airy atmosphere. The overall style is clean, botanical editorial photography."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuCv9d3zYoDygJu8SxIV-UY03shLT7d2HZDal60RlvOr8mKY7lSdsvZ-j2wC2ctwMSss5sW4zWddmGvId6rQly3UL_nJtd3dmKdgajo61EBz1wWg2fYo5XKKzY-9-q9JQhVonjMnw9YavFzp-mX9RxHUSd5u37M-NTTrU86vJUwtKeaSOIMM5KozaoCF9gqsdD3XYselBeXF6uWOikRxezfXMtFo7xNazEHlS8Q8CPcOdM9-drtTvAZWCtT1Z_HXbJBPJAVQoQBui8Bp"
+            />
+          </div>
+          <div class="p-6">
+            <h4 class="font-serif text-slate-900 mb-1">Philodendron</h4>
+            <p class="text-green-900/70 text-base mb-4">$28.00</p>
+            <button
+              class="w-full py-3 bg-green-200 text-green-800 font-sans rounded-lg group-hover:bg-green-800 group-hover:text-white transition-colors duration-300 flex items-center justify-center gap-2"
+            >
+              <span class="material-symbols-outlined text-lg"
+                >add_shopping_cart</span
+              >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+        <!-- Card 4: Fiddle Leaf Fig -->
+        <div
+          class="group bg-white border border-green-800/10 rounded-xl overflow-hidden hover:shadow-[0_20px_50px_rgba(20,83,45,0.12)] transition-all duration-500"
+        >
+          <div class="relative overflow-hidden aspect-[4/5] bg-stone-500/5">
+            <img
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+              data-alt="A stunning Fiddle Leaf Fig tree standing tall in a minimalist sunlit living room. Its large, waxy, lyre-shaped leaves catch the soft afternoon sun. The tree is planted in a chic woven seagrass basket. The background consists of off-white walls and light wood flooring, emphasizing a high-end, organic interior design aesthetic. Lighting is warm and ethereal."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuARsJqUf7_xY7DLPuEYGKgU3hMd7BNFeLWDlHWOw8mkScJu5P5fy2s3DH0yVLwxpsYk4SKE6zggHNI2J0CNBQlaUPk8RSSRP38tqNhr-CJ_f_iqMIj5BbukC7Hz7rcBwG29onPrPo2KbpWSwl2g3u1DgkdErOidI9enNwc0aIwztcxSn7A58fF9UhrUxS3hnsKft_g-4W5nIlpVRd0NE7E-rBBhXAUzmi89TMTv2kgANB9Z36gD_cwCRVpC8OZtMPprRl1MO3Y2fMO9"
+            />
+            <div
+              class="absolute top-4 right-4 bg-red-100 text-red-800 px-3 py-1 rounded-full font-sans text-xs"
+            >
+              Low Stock
+            </div>
+          </div>
+          <div class="p-6">
+            <h4 class="font-serif text-slate-900 mb-1">Fiddle Leaf</h4>
+            <p class="text-green-900/70 text-base mb-4">$85.00</p>
+            <button
+              class="w-full py-3 bg-green-200 text-green-800 font-sans rounded-lg group-hover:bg-green-800 group-hover:text-white transition-colors duration-300 flex items-center justify-center gap-2"
+            >
+              <span class="material-symbols-outlined text-lg"
+                >add_shopping_cart</span
+              >
+              Add to Cart
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Care Quote Section (Organic Interruption) -->
+    <section class="w-full bg-green-100/30 py-16">
+      <div
+        class="max-w-[1280px] mx-auto px-4 md:px-6 flex flex-col md:flex-row items-center gap-12"
+      >
+        <div class="w-full md:w-1/2">
+          <div
+            class="relative p-8 bg-white rounded-3xl shadow-xl overflow-hidden"
+          >
+            <div
+              class="absolute -top-10 -left-10 w-40 h-40 bg-green-800/10 rounded-full blur-3xl"
+            ></div>
+            <span
+              class="material-symbols-outlined text-green-800 text-5xl opacity-20 absolute top-4 right-4"
+              >format_quote</span
+            >
+            <h4 class="font-serif text-2xl text-slate-900 mb-4 leading-snug">
+              "Every plant is a story of growth. We don't just sell greenery; we
+              curate companions for your journey."
+            </h4>
+            <p class="font-sans text-green-800">
+              â€” ELARA VANCE, HEAD CURATOR
+            </p>
+          </div>
+        </div>
+        <div class="w-full md:w-1/2 grid grid-cols-2 gap-4">
+          <div class="space-y-4">
+            <div class="flex items-center gap-2">
+              <span class="leaf-bullet"></span>
+              <p class="font-sans text-slate-900">Weekly Care Emails</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="leaf-bullet"></span>
+              <p class="font-sans text-slate-900">Sustainable Sourcing</p>
+            </div>
+          </div>
+          <div class="space-y-4">
+            <div class="flex items-center gap-2">
+              <span class="leaf-bullet"></span>
+              <p class="font-sans text-slate-900">Expert Advice 24/7</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <span class="leaf-bullet"></span>
+              <p class="font-sans text-slate-900">Pet-Friendly Options</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- Footer -->
+    <footer class="w-full mt-16 bg-slate-800 dark:bg-white text-slate-300/80">
+      <div
+        class="max-w-[1280px] mx-auto px-4 md:px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-6"
+      >
+        <!-- Branding & About -->
+        <div class="space-y-6">
+          <div class="flex items-center gap-2">
+            <span class="material-symbols-outlined text-green-300 text-3xl"
+              >potted_plant</span
+            >
+            <h2 class="font-serif text-2xl text-green-300">Greenden</h2>
+          </div>
+          <p class="font-sans text-base leading-relaxed">
+            Greenden Boutique. Cultivating tranquility at home since 2020. Our
+            mission is to bridge the gap between urban living and the natural
+            world.
+          </p>
+          <div class="flex gap-4">
+            <a
+              class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-green-300 hover:text-green-900 transition-colors"
+              href="#"
+            >
+              <span class="material-symbols-outlined text-xl">share</span>
+            </a>
+            <a
+              class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-green-300 hover:text-green-900 transition-colors"
+              href="#"
+            >
+              <span class="material-symbols-outlined text-xl">public</span>
+            </a>
+          </div>
+        </div>
+        <!-- Quick Links -->
+        <div class="md:pl-12">
+          <h4 class="font-sans text-white mb-6 uppercase tracking-widest">
+            Navigation
+          </h4>
+          <ul class="space-y-4">
+            <li>
+              <a
+                class="hover:text-green-300 hover:translate-x-1 transition-all inline-block"
+                href="home.html"
+                >Home</a
+              >
+            </li>
+            <li>
+              <a
+                class="hover:text-green-300 hover:translate-x-1 transition-all inline-block"
+                href="product.html"
+                >Products</a
+              >
+            </li>
+            <li>
+              <a
+                class="hover:text-green-300 hover:translate-x-1 transition-all inline-block"
+                href="contact.html"
+                >Contact</a
+              >
+            </li>
+            <li>
+              <a
+                class="hover:text-green-300 hover:translate-x-1 transition-all inline-block"
+                href="#"
+                >Privacy Policy</a
+              >
+            </li>
+            <li>
+              <a
+                class="hover:text-green-300 hover:translate-x-1 transition-all inline-block"
+                href="#"
+                >Shipping</a
+              >
+            </li>
+          </ul>
+        </div>
+        <!-- Newsletter -->
+        <div>
+          <h4 class="font-sans text-white mb-6 uppercase tracking-widest">
+            Stay Rooted
+          </h4>
+          <p class="text-base mb-6">
+            Join our community for plant care tips and exclusive offers.
+          </p>
+          <form class="flex flex-col gap-3">
+            <input
+              class="bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:outline-none focus:ring-2 focus:ring-green-300 text-white placeholder:text-white/30"
+              placeholder="Your Email"
+              type="email"
+            />
+            <button
+              class="w-full py-3 bg-green-300 text-green-900 font-sans rounded-xl hover:opacity-90 transition-opacity"
+            >
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </div>
+      <!-- Bottom Bar -->
+      <div
+        class="max-w-[1280px] mx-auto px-4 md:px-6 py-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs"
+      >
+        <p>Â© 2024 Greenden Boutique. All rights reserved.</p>
+        <div class="flex gap-6">
+          <a class="hover:text-white" href="#">Terms of Service</a>
+          <a class="hover:text-white" href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </footer>
+    <!-- Floating Action Button (FAB) -->
+    <button
+      class="fixed bottom-8 right-8 w-14 h-14 bg-green-800 text-white rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-transform z-40 md:hidden"
+    >
+      <span class="material-symbols-outlined">chat_bubble</span>
+    </button>
+    <script>
+      function toggleDrawer() {
+        const drawer = document.getElementById("drawer");
+        const drawerContent = drawer.querySelector("aside");
+        if (drawer.classList.contains("hidden")) {
+          drawer.classList.remove("hidden");
+          setTimeout(() => {
+            drawerContent.classList.remove("-translate-x-full");
+          }, 10);
+        } else {
+          drawerContent.classList.add("-translate-x-full");
+          setTimeout(() => {
+            drawer.classList.add("hidden");
+          }, 300);
+        }
+      }
+
+      // Simple scroll reveal effect
+      window.addEventListener("scroll", () => {
+        const cards = document.querySelectorAll(".group");
+        cards.forEach((card) => {
+          const rect = card.getBoundingClientRect();
+          if (rect.top < window.innerHeight - 100) {
+            card.classList.add("opacity-100", "translate-y-0");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

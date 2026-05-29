@@ -1,0 +1,548 @@
+﻿<!doctype html>
+
+<html class="scroll-smooth" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Our Plants | Greenden Boutique</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&amp;family=Lato:wght@300;400;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .botanical-bullet::before {
+        content: "";
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        background-color: #006b2c;
+        mask: url("data:image/svg+xml,%3Csvg viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3Base64,PHBhdGggZD0iTTE3LDIuMTZDMTEuOTIsMi4xNiw3Ljk2LDQuMTUsNS4yLDcuNzZDNy4yLDguNDcsOC42NSwxMCwxMSwxMC41QzE0LDIuODEsMTksNSwyMSw4QzE4LDIwLDEwLDIyLDQsMjBDNiwxNSwxMCwxMCwxNSwxMCIvPg==");
+        mask-size: contain;
+        margin-right: 0.5rem;
+      }
+    </style>
+  </head>
+  <body class="bg-white font-sans text-slate-900">
+    <!-- TopAppBar -->
+    <header
+      class="w-full sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-[0_4px_20px_rgba(20,83,45,0.05)]"
+    >
+      <nav
+        class="max-w-[1280px] mx-auto px-4 md:px-6 flex justify-between items-center h-20"
+      >
+        <div class="flex items-center gap-2">
+          <span
+            class="material-symbols-outlined text-green-800 text-3xl"
+            data-icon="potted_plant"
+            >potted_plant</span
+          >
+          <span
+            class="font-serif text-2xl text-green-800 dark:text-green-300-dim tracking-tight"
+            >Greenden</span
+          >
+        </div>
+        <!-- Desktop Nav -->
+        <div class="hidden md:flex items-center gap-8">
+          <a
+            class="font-sans text-green-900/70 dark:text-slate-400 hover:text-green-800 transition-colors duration-300"
+            href="home.html"
+            >Home</a
+          >
+          <a
+            class="font-sans text-green-800 dark:text-green-300-dim font-bold border-b-2 border-green-800"
+            href="product.html"
+            >Products</a
+          >
+          <a
+            class="font-sans text-green-900/70 dark:text-slate-400 hover:text-green-800 transition-colors duration-300"
+            href="contact.html"
+            >Contact</a
+          >
+          <div class="flex items-center gap-4 ml-4">
+            <button
+              class="material-symbols-outlined text-green-900/70 hover:text-green-800 transition-all duration-300 scale-95 active:scale-90"
+              data-icon="search"
+            >
+              search
+            </button>
+            <button
+              class="material-symbols-outlined text-green-900/70 hover:text-green-800 transition-all duration-300 scale-95 active:scale-90"
+              data-icon="shopping_bag"
+            >
+              shopping_bag
+            </button>
+          </div>
+        </div>
+        <!-- Mobile Menu Trigger -->
+        <button
+          class="md:hidden material-symbols-outlined text-green-800 p-2"
+          data-icon="menu"
+          onclick="toggleMenu()"
+        >
+          menu
+        </button>
+      </nav>
+    </header>
+    <!-- Mobile NavigationDrawer Overlay -->
+    <div
+      class="fixed inset-0 z-[60] bg-black/20 backdrop-blur-sm hidden transition-opacity duration-300"
+      id="mobile-drawer"
+      onclick="toggleMenu()"
+    >
+      <aside
+        class="bg-slate-100 h-full w-72 shadow-xl flex flex-col py-6 transition-transform duration-300 -translate-x-full"
+        onclick="event.stopPropagation()"
+      >
+        <div class="px-6 py-4 flex justify-between items-center">
+          <span class="font-serif text-green-800 text-2xl">Greenden Menu</span>
+          <button
+            class="material-symbols-outlined"
+            data-icon="close"
+            onclick="toggleMenu()"
+          >
+            close
+          </button>
+        </div>
+        <div class="flex flex-col gap-2 mt-4">
+          <a
+            class="flex items-center gap-4 py-3 px-6 text-green-900/70 hover:bg-white-variant/50 rounded-full mx-2 transition-all"
+            href="#"
+          >
+            <span class="material-symbols-outlined" data-icon="home">home</span>
+            <span class="font-serif">Home</span>
+          </a>
+          <a
+            class="flex items-center gap-4 py-3 px-6 bg-green-200 text-green-800 rounded-full mx-2 font-bold"
+            href="#"
+          >
+            <span class="material-symbols-outlined" data-icon="local_florist"
+              >local_florist</span
+            >
+            <span class="font-serif">Products</span>
+          </a>
+          <a
+            class="flex items-center gap-4 py-3 px-6 text-green-900/70 hover:bg-white-variant/50 rounded-full mx-2 transition-all"
+            href="#"
+          >
+            <span class="material-symbols-outlined" data-icon="mail">mail</span>
+            <span class="font-serif">Contact</span>
+          </a>
+        </div>
+      </aside>
+    </div>
+    <main>
+      <!-- Page Header -->
+      <section class="w-full bg-[#f0fdf4] py-6 text-center">
+        <h1 class="font-serif text-4xl md:text-5xl text-green-800">
+          Our Plants
+        </h1>
+        <p class="font-sans text-green-900/70 mt-2">
+          Carefully curated greenery for your sanctuary.
+        </p>
+      </section>
+      <!-- Search & Filter Section -->
+      <section class="max-w-[1280px] mx-auto px-4 md:px-6 mt-12">
+        <div
+          class="flex flex-col md:flex-row gap-6 items-center justify-between"
+        >
+          <!-- Pill Search Bar -->
+          <div class="relative w-full md:max-w-md">
+            <input
+              class="w-full pl-12 pr-6 py-3 rounded-full border border-green-200 bg-white focus:ring-2 focus:ring-green-800 focus:border-green-800 focus:shadow-lg transition-all outline-none font-sans"
+              placeholder="Search our boutique..."
+              type="text"
+            />
+            <span
+              class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-green-900/70"
+              data-icon="search"
+              >search</span
+            >
+          </div>
+          <!-- Category Filters -->
+          <div
+            class="flex gap-2 overflow-x-auto pb-2 w-full md:w-auto scrollbar-hide no-scrollbar"
+          >
+            <button
+              class="px-6 py-2 rounded-full bg-green-800 text-white font-sans whitespace-nowrap shadow-sm hover:opacity-90 transition-all"
+            >
+              All
+            </button>
+            <button
+              class="px-6 py-2 rounded-full border border-green-200 text-green-900/70 font-sans whitespace-nowrap hover:bg-white-variant/30 transition-all"
+            >
+              Air Purifying
+            </button>
+            <button
+              class="px-6 py-2 rounded-full border border-green-200 text-green-900/70 font-sans whitespace-nowrap hover:bg-white-variant/30 transition-all"
+            >
+              Low Maintenance
+            </button>
+            <button
+              class="px-6 py-2 rounded-full border border-green-200 text-green-900/70 font-sans whitespace-nowrap hover:bg-white-variant/30 transition-all"
+            >
+              Flowering
+            </button>
+          </div>
+        </div>
+      </section>
+      <!-- Product Grid -->
+      <section
+        class="max-w-[1280px] mx-auto px-4 md:px-6 mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 mb-16"
+      >
+        <!-- Product Card 1: Snake Plant -->
+        <div
+          class="group bg-white rounded-xl border border-[#dcfce7] overflow-hidden hover:shadow-[0_8px_30px_rgba(20,83,45,0.1)] transition-all duration-500"
+        >
+          <div class="aspect-square relative overflow-hidden bg-green-100">
+            <img
+              alt="Snake Plant"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              src="images/snake_plant.png"
+            />
+            <span
+              class="absolute top-4 left-4 bg-green-200 text-green-800 text-[12px] font-bold px-3 py-1 rounded-full uppercase tracking-wider"
+              >Hardy</span
+            >
+          </div>
+          <div class="p-6">
+            <h3 class="font-serif text-slate-900 mb-1">Snake Plant</h3>
+            <p class="font-sans text-green-900/70 line-clamp-1 mb-4">
+              A tall, architectural plant that thrives on neglect.
+            </p>
+            <div class="flex items-center justify-between mt-auto">
+              <span class="font-serif text-2xl text-[#16a34a]">$35.00</span>
+              <button
+                class="bg-green-800 text-white p-3 rounded-full shadow-md hover:bg-green-700 transition-all flex items-center justify-center scale-95 active:scale-90"
+              >
+                <span
+                  class="material-symbols-outlined"
+                  data-icon="add_shopping_cart"
+                  >add_shopping_cart</span
+                >
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Product Card 2: Peace Lily -->
+        <div
+          class="group bg-white rounded-xl border border-[#dcfce7] overflow-hidden hover:shadow-[0_8px_30px_rgba(20,83,45,0.1)] transition-all duration-500"
+        >
+          <div class="aspect-square relative overflow-hidden bg-green-100">
+            <img
+              alt="Peace Lily"
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              src="images/peace_lily.png"
+            />
+            <span
+              class="absolute top-4 left-4 bg-[#fef9c3] text-[#854d0e] text-[12px] font-bold px-3 py-1 rounded-full uppercase tracking-wider"
+              >Blooming</span
+            >
+          </div>
+          <div class="p-6">
+            <h3 class="font-serif text-slate-900 mb-1">Peace Lily</h3>
+            <p class="font-sans text-green-900/70 line-clamp-1 mb-4">
+              Elegant white blooms and glossy green foliage.
+            </p>
+            <div class="flex items-center justify-between mt-auto">
+              <span class="font-serif text-2xl text-[#16a34a]">$42.00</span>
+              <button
+                class="bg-green-800 text-white p-3 rounded-full shadow-md hover:bg-green-700 transition-all flex items-center justify-center scale-95 active:scale-90"
+              >
+                <span
+                  class="material-symbols-outlined"
+                  data-icon="add_shopping_cart"
+                  >add_shopping_cart</span
+                >
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Product Card 3: Fiddle Leaf Fig -->
+        <div
+          class="group bg-white rounded-xl border border-[#dcfce7] overflow-hidden hover:shadow-[0_8px_30px_rgba(20,83,45,0.1)] transition-all duration-500"
+        >
+          <div class="aspect-square relative overflow-hidden bg-green-100">
+            <img
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              data-alt="A large Fiddle Leaf Fig plant with broad, vibrant green violin-shaped leaves standing in a minimalist white ceramic pot. The lighting is soft and natural, coming from a large window off-camera, creating an airy and sophisticated atmosphere. The background is a clean, neutral-toned wall typical of a premium interior design studio. The overall aesthetic is botanical and upscale."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8VeQYtwTVKuVI4vV8tTkXCYMOW_vA6PWacqt_C06BoXamZzOMldxBV-cGXMStlfBEeYvfpELSLt0o-9psKGgQfB7XHlKVjB0YJ9unF_mB_WlIuPC5Dxqom2Dfs-E3a95iBoE8dsz3k2y0I6v1OmUV85sw15FE7Ri-PE3Jot33_AlfpCc-Uh4aZrAEFNljOAwCid15LAcG4HbbDK3DDIxhq1X5fIJjRgAtb_xj0bhFbuDyt5lsgR_xVFEZgg4Kq8reTbgVq2MbPC9C"
+            />
+            <span
+              class="absolute top-4 left-4 bg-[#dbeafe] text-[#1e40af] text-[12px] font-bold px-3 py-1 rounded-full uppercase tracking-wider"
+              >Statement</span
+            >
+          </div>
+          <div class="p-6">
+            <h3 class="font-serif text-slate-900 mb-1">Fiddle Leaf Fig</h3>
+            <p class="font-sans text-green-900/70 line-clamp-1 mb-4">
+              The ultimate interior designer's favorite tree.
+            </p>
+            <div class="flex items-center justify-between mt-auto">
+              <span class="font-serif text-2xl text-[#16a34a]">$85.00</span>
+              <button
+                class="bg-green-800 text-white p-3 rounded-full shadow-md hover:bg-green-700 transition-all flex items-center justify-center scale-95 active:scale-90"
+              >
+                <span
+                  class="material-symbols-outlined"
+                  data-icon="add_shopping_cart"
+                  >add_shopping_cart</span
+                >
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Product Card 4: Monstera Deliciosa -->
+        <div
+          class="group bg-white rounded-xl border border-[#dcfce7] overflow-hidden hover:shadow-[0_8px_30px_rgba(20,83,45,0.1)] transition-all duration-500"
+        >
+          <div class="aspect-square relative overflow-hidden bg-green-100">
+            <img
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              data-alt="A lush Monstera Deliciosa plant with iconic fenestrated leaves in a stylish terracotta pot. The scene is set in a bright, modern living room with soft, warm morning light casting gentle shadows of the leaves against a pale sage green wall. The composition is clean and focused, emphasizing the organic texture of the plant. The mood is tranquil, fresh, and highlights a high-end botanical lifestyle."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBIQNHvnL32wE4A-V5Nw_8stQLzN1Ugb_t_lIlBkx1y9__NuNvsBsdswy312pg4rVAebqMgkdsLsvaWvlJA-2jwFSIMdtuKuVVFlZ2x99ljJ0OPEjYaaN_szc1gznYwXcT-qZvdodjcmI0Nxs8vw9-isZFDSIEAb4_3hUVY8TrH2dsUg8Z0D2VqHxZ3TOmwzhdHaZsWRpNfM1T3CRIbbrQWqlySBIBdGz2-rsZJ4chcLkynL9JE-slrh2_pqF0p2tNPgzIgTY6OEKeK"
+            />
+            <span
+              class="absolute top-4 left-4 bg-[#f3e8ff] text-[#6b21a8] text-[12px] font-bold px-3 py-1 rounded-full uppercase tracking-wider"
+              >Iconic</span
+            >
+          </div>
+          <div class="p-6">
+            <h3 class="font-serif text-slate-900 mb-1">Monstera Deliciosa</h3>
+            <p class="font-sans text-green-900/70 line-clamp-1 mb-4">
+              Iconic Swiss cheese plant for tropical vibes.
+            </p>
+            <div class="flex items-center justify-between mt-auto">
+              <span class="font-serif text-2xl text-[#16a34a]">$55.00</span>
+              <button
+                class="bg-green-800 text-white p-3 rounded-full shadow-md hover:bg-green-700 transition-all flex items-center justify-center scale-95 active:scale-90"
+              >
+                <span
+                  class="material-symbols-outlined"
+                  data-icon="add_shopping_cart"
+                  >add_shopping_cart</span
+                >
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Product Card 5: Pothos Jade -->
+        <div
+          class="group bg-white rounded-xl border border-[#dcfce7] overflow-hidden hover:shadow-[0_8px_30px_rgba(20,83,45,0.1)] transition-all duration-500"
+        >
+          <div class="aspect-square relative overflow-hidden bg-green-100">
+            <img
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              data-alt="A cascading Pothos Jade plant with heart-shaped deep green leaves trailing down from a minimalist hanging planter. The background is a clean white textured wall, illuminated by soft, diffused daylight that creates a calm, serene atmosphere. The focus is sharp on the leaves, showing their healthy sheen and organic flow. The style is modern editorial with a focus on tactile minimalism and natural beauty."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuD019Z2PUJxFvyrJ3O01lAPYlRIBXRYZbixuqUeEBRqeG3fZy15wUX9NtxiDXexZ6rZEJvy7qEUruc2J3k4biWGovFBh_Oeiut7p78VkYDjr7x2r9SUYiRILMOTOzSV9nDKIoV87vi89KSp1TjlLICCetCB--fAz5uO2JMk2KCJR4JJhvKU7vfn2BdmYZHzfiR25rjNDMez5ICF7S0ewQqFG47uPTjV62QtBCyEWebGElhMx8yRlVh2cwuLXMOMaBPdmFRUZNaHmb1-"
+            />
+            <span
+              class="absolute top-4 left-4 bg-green-200 text-green-800 text-[12px] font-bold px-3 py-1 rounded-full uppercase tracking-wider"
+              >Beginner</span
+            >
+          </div>
+          <div class="p-6">
+            <h3 class="font-serif text-slate-900 mb-1">Pothos Jade</h3>
+            <p class="font-sans text-green-900/70 line-clamp-1 mb-4">
+              Trailing vines that are practically indestructible.
+            </p>
+            <div class="flex items-center justify-between mt-auto">
+              <span class="font-serif text-2xl text-[#16a34a]">$24.00</span>
+              <button
+                class="bg-green-800 text-white p-3 rounded-full shadow-md hover:bg-green-700 transition-all flex items-center justify-center scale-95 active:scale-90"
+              >
+                <span
+                  class="material-symbols-outlined"
+                  data-icon="add_shopping_cart"
+                  >add_shopping_cart</span
+                >
+              </button>
+            </div>
+          </div>
+        </div>
+        <!-- Product Card 6: Calathea Orbifolia -->
+        <div
+          class="group bg-white rounded-xl border border-[#dcfce7] overflow-hidden hover:shadow-[0_8px_30px_rgba(20,83,45,0.1)] transition-all duration-500"
+        >
+          <div class="aspect-square relative overflow-hidden bg-green-100">
+            <img
+              class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+              data-alt="A stunning Calathea Orbifolia plant with its distinctive wide, silver-green striped leaves. The plant is housed in a contemporary dark grey pot, sitting on a light wood surface. The background is a soft, blurred-out boutique interior with hints of other greenery and elegant lighting. The overall mood is peaceful and premium, capturing the intricate patterns of nature in an editorial photography style."
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyXLvSPcz_k8fvE0pa7pT17Dukrv24xIn0xOtlR6MEpeLmthOZLx7fkG6yH9xc_hSLLrxapWo9tvCFhQ6HMLUsBQhVumlWvQyDREtMx88CsTgx2dxjvWWIsnJC7RzhPQwCScX4OUKLLDH8uo3qkxrnXkifHhIrm_Y52d-y34mFaw4qvTBxJBEqGxlsNW46D4m8FvU8ZaXL-A_q-oT4FSbYgriNm4W9mj81oWajYoGZb0rDppBTldHD8lu2J0a_Ao3jMvVQ-1xoOia4"
+            />
+            <span
+              class="absolute top-4 left-4 bg-[#ffedd5] text-[#9a3412] text-[12px] font-bold px-3 py-1 rounded-full uppercase tracking-wider"
+              >Patterned</span
+            >
+          </div>
+          <div class="p-6">
+            <h3 class="font-serif text-slate-900 mb-1">Calathea Orbifolia</h3>
+            <p class="font-sans text-green-900/70 line-clamp-1 mb-4">
+              Striking round leaves with silver stripes.
+            </p>
+            <div class="flex items-center justify-between mt-auto">
+              <span class="font-serif text-2xl text-[#16a34a]">$48.00</span>
+              <button
+                class="bg-green-800 text-white p-3 rounded-full shadow-md hover:bg-green-700 transition-all flex items-center justify-center scale-95 active:scale-90"
+              >
+                <span
+                  class="material-symbols-outlined"
+                  data-icon="add_shopping_cart"
+                  >add_shopping_cart</span
+                >
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Footer -->
+    <footer class="w-full mt-16 bg-slate-800 dark:bg-white">
+      <div
+        class="max-w-[1280px] mx-auto px-4 md:px-6 py-16 grid grid-cols-1 md:grid-cols-3 gap-6"
+      >
+        <div class="flex flex-col gap-4">
+          <div class="flex items-center gap-2">
+            <span
+              class="material-symbols-outlined text-green-300 text-3xl"
+              data-icon="potted_plant"
+              >potted_plant</span
+            >
+            <span class="font-serif text-2xl text-green-300">Greenden</span>
+          </div>
+          <p class="font-sans text-slate-300/80">
+            Cultivating tranquility at home since 2012. We deliver the freshest,
+            hand-picked botanical treasures right to your doorstep.
+          </p>
+        </div>
+        <div class="flex flex-col gap-4">
+          <h4 class="font-serif text-green-300">Quick Links</h4>
+          <nav class="flex flex-col gap-2">
+            <a
+              class="font-sans text-slate-300/80 hover:text-slate-300 hover:translate-x-1 transition-transform duration-200"
+              href="home.html"
+              >Home</a
+            >
+            <a class="font-sans text-green-300 font-bold" href="product.html"
+              >Products</a
+            >
+            <a
+              class="font-sans text-slate-300/80 hover:text-slate-300 hover:translate-x-1 transition-transform duration-200"
+              href="contact.html"
+              >Contact</a
+            >
+            <a
+              class="font-sans text-slate-300/80 hover:text-slate-300 hover:translate-x-1 transition-transform duration-200"
+              href="#"
+              >Privacy Policy</a
+            >
+            <a
+              class="font-sans text-slate-300/80 hover:text-slate-300 hover:translate-x-1 transition-transform duration-200"
+              href="#"
+              >Shipping</a
+            >
+          </nav>
+        </div>
+        <div class="flex flex-col gap-4">
+          <h4 class="font-serif text-green-300">Stay Rooted</h4>
+          <p class="font-sans text-slate-300/80">
+            Join our mailing list for care tips and exclusive previews.
+          </p>
+          <div class="flex gap-2">
+            <input
+              class="bg-white/10 border border-slate-300/20 rounded-lg px-4 py-2 w-full text-white focus:outline-none focus:border-green-800-fixed"
+              placeholder="Email address"
+              type="email"
+            />
+            <button
+              class="bg-green-300 text-green-900 font-bold px-4 py-2 rounded-lg hover:opacity-90 transition-opacity"
+            >
+              Join
+            </button>
+          </div>
+          <div class="flex gap-4 mt-2">
+            <span
+              class="material-symbols-outlined text-slate-300/80 hover:text-green-300 cursor-pointer transition-colors"
+              data-icon="share"
+              >share</span
+            >
+            <span
+              class="material-symbols-outlined text-slate-300/80 hover:text-green-300 cursor-pointer transition-colors"
+              data-icon="camera"
+              >camera</span
+            >
+            <span
+              class="material-symbols-outlined text-slate-300/80 hover:text-green-300 cursor-pointer transition-colors"
+              data-icon="nest_eco_leaf"
+              >nest_eco_leaf</span
+            >
+          </div>
+        </div>
+      </div>
+      <div
+        class="max-w-[1280px] mx-auto px-4 md:px-6 py-6 border-t border-slate-300/10 text-center"
+      >
+        <p class="font-sans text-slate-300/60">
+          Â© 2024 Greenden Boutique. Cultivating tranquility at home.
+        </p>
+      </div>
+    </footer>
+    <script>
+      function toggleMenu() {
+        const drawer = document.getElementById("mobile-drawer");
+        const aside = drawer.querySelector("aside");
+        if (drawer.classList.contains("hidden")) {
+          drawer.classList.remove("hidden");
+          setTimeout(() => {
+            drawer.classList.add("opacity-100");
+            aside.classList.remove("-translate-x-full");
+          }, 10);
+        } else {
+          drawer.classList.remove("opacity-100");
+          aside.classList.add("-translate-x-full");
+          setTimeout(() => {
+            drawer.classList.add("hidden");
+          }, 300);
+        }
+      }
+
+      // Simple scroll behavior for header
+      let lastScroll = 0;
+      window.addEventListener("scroll", () => {
+        const header = document.querySelector("header");
+        const currentScroll = window.pageYOffset;
+
+        if (currentScroll <= 0) {
+          header.classList.remove("shadow-lg");
+          return;
+        }
+
+        if (currentScroll > lastScroll) {
+          // Scrolling down
+          header.style.transform = "translateY(-100%)";
+        } else {
+          // Scrolling up
+          header.style.transform = "translateY(0)";
+          header.classList.add("shadow-lg");
+        }
+        lastScroll = currentScroll;
+      });
+    </script>
+  </body>
+</html>
